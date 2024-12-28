@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'user',
     'music',
     'compressor',
-    'bootstrap5',
 ]
 
 COMPRESS_ENABLED = True
@@ -91,7 +90,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': '123789',
         'HOST': 'localhost',  # Set to empty string for localhost
-        'PORT': '5432',  # Default PostgreSQL port
+        'PORT': '5433',  # Default PostgreSQL port
     }
 }
 
