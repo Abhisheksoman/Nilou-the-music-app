@@ -22,7 +22,7 @@ function playMusic(index, pause = false) {
     currentSong.src = track.url; // Assuming 'url' is the field with the URL to play
     if (!pause) {
         currentSong.play();
-        document.getElementById('play').src = "{% static 'photos/pause.svg' %}";
+        document.getElementById('play').src = `${staticRoot}photos/pause.svg`;
     }
     document.querySelector(".songinfo").innerText = track.title;
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
@@ -36,14 +36,14 @@ function handleAlbumClick(albumElement) {
     songUL.innerHTML = "";
 
     songs.forEach((song, index) => {
-        songUL.innerHTML += `<li><img class="invert" width="34" src="${song.thumbnail}" alt="">
+        songUL.innerHTML += `<li><img class="invert" width="34" src="${staticRoot}photos/plays.png" alt="">
             <div class="info">
                 <div>${song.title}</div>
                 <div>Unknown Artist</div>
             </div>
             <div class="playnow">
                 <span>Play Now</span>
-                <img class="invert" src="{% static 'photos/play.svg' %}" alt="">
+                <img class="invert" src="${staticRoot}photos/music.svg" alt="">
             </div></li>`;
     });
 
@@ -71,10 +71,10 @@ function initializePlayer() {
     document.getElementById('play').addEventListener("click", () => {
         if (currentSong.paused) {
             currentSong.play();
-            document.getElementById('play').src = "static/photos/pause.png";
+            document.getElementById('play').src = `${staticRoot}photos/pause.png`;
         } else {
             currentSong.pause();
-            document.getElementById('play').src = "static/photos/play.png";
+            document.getElementById('play').src = `${staticRoot}photos/play.png`;
         }
     });
 
@@ -119,16 +119,16 @@ function initializePlayer() {
 
     document.querySelector(".range input").addEventListener("change", e => {
         currentSong.volume = parseInt(e.target.value) / 100;
-        document.querySelector(".volume>img").src = currentSong.volume > 0 ? "static/photos/volume.png" : "static/photos/mute.png";
+        document.querySelector(".volume>img").src = currentSong.volume > 0 ? `${staticRoot}photos/volume.png` : `${staticRoot}photos/mute.svg`;
     });
 
     document.querySelector(".volume>img").addEventListener("click", e => {
         if (e.target.src.includes("volume.png")) {
-            e.target.src = "static/photos/mute.png";
+            e.target.src = `${staticRoot}photos/mute.svg`;
             currentSong.volume = 0;
             document.querySelector(".range input").value = 0;
         } else {
-            e.target.src = "static/photos/volume.png";
+            e.target.src = `${staticRoot}photos/volume.png`;
             currentSong.volume = 0.10;
             document.querySelector(".range input").value = 10;
         }
