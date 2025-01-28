@@ -22,7 +22,7 @@ function playMusic(index, pause = false) {
     currentSong.src = track.url; // Assuming 'url' is the field with the URL to play
     if (!pause) {
         currentSong.play();
-        document.getElementById('play').src = `${staticRoot}photos/pause.svg`;
+        document.getElementById('play').src = `${staticRoot}photos/pause.png`;
     }
     document.querySelector(".songinfo").innerText = track.title;
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
@@ -36,7 +36,7 @@ function handleAlbumClick(albumElement) {
     songUL.innerHTML = "";
 
     songs.forEach((song, index) => {
-        songUL.innerHTML += `<li><img class="invert" width="34" src="${staticRoot}photos/plays.png" alt="">
+        songUL.innerHTML += `<li><img class="invert" width="34" src="${staticRoot}photos/playnow.svg" alt="">
             <div class="info">
                 <div>${song.title}</div>
                 <div>Unknown Artist</div>
